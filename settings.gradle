@@ -1,4 +1,8 @@
 rootProject.name = 'RybchenkoZakhar_C34'
 include 'hometask2'
+
+include 'hometask5'
+
 include 'hometask1'
+
 
