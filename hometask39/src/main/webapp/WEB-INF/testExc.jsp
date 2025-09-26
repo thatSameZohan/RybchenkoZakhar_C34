@@ -5,6 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-<sp:message code="shop.title"/>
+<sp:message code="test.title"/>
 </body>
 </html>
