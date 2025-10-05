@@ -1,7 +1,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <ul th:fragment="films">
-        <li th:each="film : ${films}">
-            <p th:text="${film.getName()} + ' : ' + ${film.getDuration()}"/>
-        </li>
+    <li th:each="film : ${films}">
+        <p th:text="${film.getName()} + ' : ' + ${film.getDuration()} + ' min'"/>
+    </li>
 </ul>
