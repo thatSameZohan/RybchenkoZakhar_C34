@@ -11,4 +11,7 @@ import lombok.Setter;
 public class FilmSearchDto {
 
     private String name;
+    private Integer durationFrom;
+    private Integer durationTo;
+    private String description;
 }

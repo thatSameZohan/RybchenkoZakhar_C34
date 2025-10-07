@@ -2,6 +2,6 @@
 
 <ul th:fragment="films">
     <li th:each="film : ${films}">
-        <p th:text="${film.getName()} + ' : ' + ${film.getDuration()} + ' min'"/>
+        <p th:text="${film.getName()} + ' : ' + ${film.getDuration()} + ' min'+' : '+${film.getDescription()}"/>
     </li>
 </ul>

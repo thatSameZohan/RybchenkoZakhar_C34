@@ -20,5 +20,6 @@ public class FilmEntity {
     private UUID id;
     private String name;
     private Integer duration;
+    private String description;
 
 }

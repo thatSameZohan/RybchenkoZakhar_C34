@@ -21,10 +21,11 @@ public class FilmController {
 
     private final FilmService service;
 
-    @PostMapping
-    public String info(@Valid @ModelAttribute(name = "film") FilmDto film,
-                       BindingResult bindingResult,
-                       Model model) {
+    @PostMapping("save")
+    public String save(
+            @Valid @ModelAttribute(name = "film") FilmDto film,
+            BindingResult bindingResult,
+            Model model) {
         if (bindingResult.hasErrors()) {
             return "index.html";
         };
@@ -34,11 +35,22 @@ public class FilmController {
         return "index.html";
     }
     @PostMapping("/search")
-    public String search(@ModelAttribute(name = "film") FilmDto film,
-                         FilmSearchDto dto,
-                         Model model) {
-        List<FilmDto> result = service.findByName(dto.getName());
+    public String search(
+            @ModelAttribute(name = "film") FilmDto film,
+            FilmSearchDto dto,
+            Model model) {
+        List<FilmDto> result = service.findByCriteria(dto);
         model.addAttribute("films",result);
+        return "index.html";
+    }
+    @PostMapping("/delete")
+    public String delete(
+            @ModelAttribute(name = "film") FilmDto film,
+            FilmSearchDto dto,
+            Model model) {
+        service.delete(dto.getName());
+        List<FilmDto> all=service.findAll();
+        model.addAttribute("films",all);
         return "index.html";
     }
 }

@@ -14,9 +14,10 @@ import java.util.UUID;
 public class FilmDto {
     private UUID id;
     @NotBlank
-    @NotBlank
     private String name;
     @NotNull
     @Min(1)
     private Integer duration;
+    @NotBlank
+    private String description;
 }

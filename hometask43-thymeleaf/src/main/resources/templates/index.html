@@ -2,22 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Моя фильмотека</title>
 </head>
 <body>
 <a href="?lang=ru">RU</a> | <a href="?lang=en">EN</a> | <a href="/home">HOME</a>
 <h2 th:text="#{home.title}"/>
 <hr>
 <form th:action="@{/film}" method="post" th:object="${film}">
-    <input type="text" th:field="*{name}"> Name<br><p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p><br>
+    <input type="text" th:field="*{name}"> Name <br><p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p><br>
     <input type="number" th:field="*{duration}"> Duration (min)<p th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}"></p><br>
+    <input type="text" th:field="*{description}"> Description <br><p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p><br>
     <input type="submit" value="Add">
 </form>
 <hr>
 <form th:action="@{/film/search}" method="post">
-    Search by name<br><input type="text" name="name"> <input type="submit" value="find">
+    Search<br>
+    by name <input type="text" name="name"><br>
+    by duration from <input type="number" name="durationFrom">
+                to <input type="number" name="durationTo"><br>
+    by description <input type="text" name="description"><br>
+    <input type="submit" value="Find">
 </form>
 <hr>
+<form th:action="@{/film/delete}" method="post">
+    Delete<br>
+    by name <input type="text" name="name"><br>
+    <input type="submit" value="Delete">
+</form>
 <div th:insert="~{part/top_part :: films}"></div>
 </body>
 </html>
